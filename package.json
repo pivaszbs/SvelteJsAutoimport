@@ -1,13 +1,13 @@
 {
-  "name": "vue-autoimport",
-  "displayName": "Vue.js AutoImport",
-  "description": "provide for vue.js support.",
-  "version": "1.0.4",
+  "name": "svelte-autoimport",
+  "displayName": "Svelte.js AutoImport",
+  "description": "provide for svelte.js support.",
+  "version": "0.0.1",
   "license": "MIT",
-  "publisher": "ishiyama",
-  "repository": "https://github.com/ishiyama0530/VueJsAutoImport",
+  "publisher": "pivaszbs",
+  "repository": "https://github.com/pivaszbs/SvelteJsAutoimport",
   "icon": "asset/icon.png",
-  "homepage": "https://github.com/ishiyama0530/VueJsAutoImport",
+  "homepage": "https://github.com/pivaszbs/SvelteJsAutoimport",
   "engines": {
     "vscode": "^1.27.0"
   },
@@ -15,45 +15,35 @@
     "Programming Languages"
   ],
   "activationEvents": [
-    "onLanguage:vue"
+    "onLanguage:svelte"
   ],
   "main": "./out/extension",
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Vue.js AutoImport",
+      "title": "Svelte.js AutoImport",
       "properties": {
-        "vuejsAutoImport.rootDirectory": {
+        "sveltejsAutoImport.rootDirectory": {
           "type": "string",
           "default": "",
           "description": "root directory in workspace for file grep. ex) src"
         },
-        "vuejsAutoImport.insertOneComponentPerLine": {
+        "sveltejsAutoImport.importWithIntend": {
           "type": "boolean",
-          "default": false,
-          "description": "Insert one component per line."
-        },
-        "vuejsAutoImport.indentScriptTag": {
-          "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Script tag is indented (check this if imports are indented by one indentation level too little)"
         },
-        "vuejsAutoImport.hasTrailingComma": {
-          "type": "boolean",
-          "default": false,
-          "description": "Add trailing comma behind the last inserted item."
-        },
-        "vuejsAutoImport.importWithSemicolon": {
+        "sveltejsAutoImport.importWithSemicolon": {
           "type": "boolean",
           "default": false,
           "description": "Put semicolon after imports"
         },
-        "vuejsAutoImport.forcePascalCase": {
+        "sveltejsAutoImport.forcePascalCase": {
           "type": "boolean",
           "default": true,
           "description": "Force components to use PascalCase (even if file name uses kebab-case, camelCase or snake_case)"
         },
-        "vuejsAutoImport.hideFileExtension": {
+        "sveltejsAutoImport.hideFileExtension": {
           "type": "boolean",
           "default": false,
           "description": "When importing a component, do not add file extension to the import line."
@@ -62,24 +52,24 @@
     },
     "commands": [
       {
-        "command": "extension.vuejsAutoImport",
-        "title": "Import vue file"
+        "command": "extension.sveltejsAutoImport",
+        "title": "Import svelte file"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "when": "resourceLangId == vue",
-          "command": "extension.vuejsAutoImport",
+          "when": "resourceLangId == svelte",
+          "command": "extension.sveltejsAutoImport",
           "group": "navigation@1"
         }
       ]
     },
     "keybindings": [
       {
-        "command": "extension.vuejsAutoImport",
-        "key": "ctrl+i",
-        "mac": "cmd+i",
+        "command": "extension.sveltejsAutoImport",
+        "key": "ctrl+shift+`",
+        "mac": "cmd+ctrl+x",
         "when": "editorTextFocus"
       }
     ]

@@ -10,7 +10,7 @@ export function getRootPath(): string {
         vscode.workspace.rootPath,
         vscode.workspace
           .getConfiguration()
-          .get<string>('vuejsAutoImport.rootDirectory')!
+          .get<string>('sveltejsAutoImport.rootDirectory')!
       )
     : ''
 }

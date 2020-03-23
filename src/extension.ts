@@ -3,12 +3,12 @@
 import * as vscode from 'vscode'
 import * as voca from 'voca'
 import * as path from 'path'
-import { importVueFile } from './vueFileImporter'
+import { importSvelteFile } from './SvelteFileImporter'
 import { grepAsync } from './lib/grep'
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand('extension.vuejsAutoImport', async () => {
+    vscode.commands.registerCommand('extension.sveltejsAutoImport', async () => {
       const text: string = getText(
         vscode.window.activeTextEditor!.document,
         vscode.window.activeTextEditor!.selection.active
@@ -16,9 +16,9 @@ export function activate(context: vscode.ExtensionContext) {
 
       if (
         !vscode.window.activeTextEditor ||
-        vscode.window.activeTextEditor.document.languageId !== 'vue'
+        vscode.window.activeTextEditor.document.languageId !== 'svelte'
       ) {
-        vscode.window.showWarningMessage('Vue.js AutoImport is only vue file.')
+        vscode.window.showWarningMessage('Svelte.js AutoImport is only svelte file.')
         return false
       }
 
@@ -27,14 +27,14 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.workspace.rootPath,
             vscode.workspace
               .getConfiguration()
-              .get<string>('vuejsAutoImport.rootDirectory')!
+              .get<string>('sveltejsAutoImport.rootDirectory')!
           )
         : ''
 
       const pathList: string[] = await grepAsync([
-        path.join(rootPath, `**/${voca.camelCase(text)}.vue`),
-        path.join(rootPath, `**/${voca.kebabCase(text)}.vue`),
-        path.join(rootPath, `**/${voca.capitalize(text)}.vue`)
+        path.join(rootPath, `**/${voca.camelCase(text)}.svelte`),
+        path.join(rootPath, `**/${voca.kebabCase(text)}.svelte`),
+        path.join(rootPath, `**/${voca.capitalize(text)}.svelte`)
       ])
 
       const importCore = (fullPath: string) => {
@@ -55,7 +55,7 @@ export function activate(context: vscode.ExtensionContext) {
           relationalPath = './' + relationalPath
         }
 
-        importVueFile(parsedTargetFilePath.name, relationalPath)
+        importSvelteFile(parsedTargetFilePath.name, relationalPath)
       }
 
       if (pathList.length === 1) {
