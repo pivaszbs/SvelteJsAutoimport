@@ -2,7 +2,7 @@
   "name": "svelte-autoimport",
   "displayName": "Svelte.js AutoImport",
   "description": "provide for svelte.js support.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "publisher": "pivaszbs",
   "repository": "https://github.com/pivaszbs/SvelteJsAutoimport",

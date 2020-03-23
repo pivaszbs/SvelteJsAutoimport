@@ -17,8 +17,7 @@
 - insert import svelte file path.
 
 ## Usages
-
-~~Press "ctrl + shift + ` or select "import .svelte" in context menu on custom component tag.~~  
+ 
 Press 'cmd + ctrl + x' or select context menus 'Import svelte file' on custom component tag.  
 
 ## Change Log
