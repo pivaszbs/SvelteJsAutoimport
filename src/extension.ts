@@ -22,20 +22,45 @@ export function activate(context: vscode.ExtensionContext) {
         return false
       }
 
+      const config = vscode.workspace.getConfiguration()
+
       const rootPath = vscode.workspace.rootPath
         ? path.resolve(
             vscode.workspace.rootPath,
-            vscode.workspace
-              .getConfiguration()
-              .get<string>('sveltejsAutoImport.rootDirectory')!
+            config.get<string>('sveltejsAutoImport.rootDirectory')!
           )
         : ''
 
-      const pathList: string[] = await grepAsync([
+      let pathList: string[] = await grepAsync([
         path.join(rootPath, `**/${voca.camelCase(text)}.svelte`),
         path.join(rootPath, `**/${voca.kebabCase(text)}.svelte`),
         path.join(rootPath, `**/${voca.capitalize(text)}.svelte`)
       ])
+
+      if (config.get<string>('sveltejsAutoImport.importImages')) {
+        pathList = [...pathList, ...await grepAsync([
+          path.join(rootPath, `**/${voca.camelCase(text)}.png`),
+          path.join(rootPath, `**/${voca.kebabCase(text)}.png`),
+          path.join(rootPath, `**/${voca.capitalize(text)}.png`),
+          path.join(rootPath, `**/${voca.camelCase(text)}.jpg`),
+          path.join(rootPath, `**/${voca.kebabCase(text)}.jpg`),
+          path.join(rootPath, `**/${voca.capitalize(text)}.jpg`),
+          path.join(rootPath, `**/${voca.camelCase(text)}.jpeg`),
+          path.join(rootPath, `**/${voca.kebabCase(text)}.jpeg`),
+          path.join(rootPath, `**/${voca.capitalize(text)}.jpeg`),
+          path.join(rootPath, `**/${voca.camelCase(text)}.svg`),
+          path.join(rootPath, `**/${voca.kebabCase(text)}.svg`),
+          path.join(rootPath, `**/${voca.capitalize(text)}.svg`),
+        ])]
+      }
+
+      if (config.get<string>('sveltejsAutoImport.importScss')) {
+        pathList = [...pathList, ...await grepAsync([
+          path.join(rootPath, `**/${voca.camelCase(text)}.scss`),
+          path.join(rootPath, `**/${voca.kebabCase(text)}.scss`),
+          path.join(rootPath, `**/${voca.capitalize(text)}.scss`),
+        ])]
+      }
 
       const importCore = (fullPath: string) => {
         const activeEditorPath = path.parse(

@@ -2,7 +2,7 @@
   "name": "svelte-autoimport",
   "displayName": "Svelte.js AutoImport",
   "description": "provide for svelte.js support.",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "license": "MIT",
   "publisher": "pivaszbs",
   "repository": "https://github.com/pivaszbs/SvelteJsAutoimport",
@@ -47,6 +47,16 @@
           "type": "boolean",
           "default": false,
           "description": "When importing a component, do not add file extension to the import line."
+        },
+        "sveltejsAutoImport.importImages": {
+          "type": "boolean",
+          "default": false,
+          "description": "Importing images under script tag as data"
+        },
+        "sveltejsAutoImport.importScss": {
+          "type": "boolean",
+          "default": false,
+          "description": "Importing images under script tag as data"
         }
       }
     },
