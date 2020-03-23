@@ -1,41 +1,38 @@
-# Vue.js AutoImport
+# Svelte.js AutoImport
 
 <p>
-  <a href="https://marketplace.visualstudio.com/items?itemName=ishiyama.vue-autoimport">
-    <img src="https://vsmarketplacebadge.apphb.com/version-short/ishiyama.vue-autoimport.svg?style=flat-square">
+  <a href="https://marketplace.visualstudio.com/items?itemName=pivaszbs.svelte-autoimport">
+    <img src="https://vsmarketplacebadge.apphb.com/version-short/pivaszbs.svelte-autoimport.svg?style=flat-square">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=ishiyama.vue-autoimport">
-    <img src="https://vsmarketplacebadge.apphb.com/installs-short/ishiyama.vue-autoimport.svg?style=flat-square">
+  <a href="https://marketplace.visualstudio.com/items?itemName=pivaszbs.svelte-autoimport">
+    <img src="https://vsmarketplacebadge.apphb.com/installs-short/pivaszbs.svelte-autoimport.svg?style=flat-square">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=ishiyama.vue-autoimport">
-    <img src="https://vsmarketplacebadge.apphb.com/rating-short/ishiyama.vue-autoimport.svg?style=flat-square">
+  <a href="https://marketplace.visualstudio.com/items?itemName=pivaszbs.svelte-autoimport">
+    <img src="https://vsmarketplacebadge.apphb.com/rating-short/pivaszbs.svelte-autoimport.svg?style=flat-square">
   </a>
 </p>
 
 ## Features
 
-- insert import vue file path.
-- register imported file in components.
+- insert import svelte file path.
 
 ## Usages
 
-~~Press "ctrl + /" or select "import .vue" in context menu on custom component tag.~~  
-Press 'ctrl + i' or select context menus 'Import vue file' on custom component tag.  
-
-![demo](https://raw.githubusercontent.com/wiki/ishiyama0530/VueJsAutoImport/gif/1.gif)
+~~Press "ctrl + shift + ` or select "import .svelte" in context menu on custom component tag.~~  
+Press 'cmd + ctrl + x' or select context menus 'Import svelte file' on custom component tag.  
 
 ## Change Log
 
-See Change Log [here](https://github.com/ishiyama0530/VueJsAutoImport/blob/master/CHANGELOG.md)
+See Change Log [here](https://github.com/pivaszbs/SvelteJsAutoimport/blob/master/CHANGELOG.md)
 
 ## Marketplace
 
-See Marketplace [here](https://marketplace.visualstudio.com/items?itemName=ishiyama.vue-autoimport)
+See Marketplace [here](https://marketplace.visualstudio.com/items?itemName=pivaszbs.svelte-autoimport)
 
 ## Contributor
 
-- [xternal7](https://github.com/xternal7)
+- [pivaszbs](https://github.com/pivaszbs)
 
 ## License
 
-MIT © [ishiyama](https://github.com/ishiyama0530)
+MIT © [pivaszbs](https://github.com/pivaszbs)
